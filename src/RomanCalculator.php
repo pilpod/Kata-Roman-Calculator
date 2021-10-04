@@ -8,6 +8,16 @@ class RomanCalculator {
     private string $firstNumber;
     private string $secondNumber;
 
+    private array $numbers = [
+        1 => 'I',
+        5 => 'V',
+        10 => 'X',
+        50 => 'L',
+        100 => 'C',
+        500 => 'D',
+        1000 => 'M'
+    ];
+
     public function __construct()
     {
        
@@ -33,6 +43,24 @@ class RomanCalculator {
 
         $result = $this->firstNumber . $this->secondNumber;
         return $result;
+    }
+
+    function checkIfIsLessThen( string $num1, string $num2) : bool
+    {
+        $keyNum1 = array_search($num1, $this->numbers);
+        $keyNum2 = array_search($num2, $this->numbers);
+
+        if($keyNum1 < $keyNum2) {
+            return true;
+        }
+
+        return false;
+
+    }
+
+    function checkIfIsSubtraction() : bool
+    {
+
     }
 
 }
