@@ -8,7 +8,8 @@ use App\Models\Number;
 
 class RomanCalculatorTest extends TestCase {
 
-    function test_I_plus_I_equals_II() {
+    function test_I_plus_I_equals_II() 
+    {
         $firstNumber = new Number('I');
         $secondNumber = new Number('I');
 
@@ -18,6 +19,19 @@ class RomanCalculatorTest extends TestCase {
         $result = $calculator->sum();
 
         $this->assertEquals('II', $result);
+    }
+
+    function test_I_plus_IV_equals_V()
+    {
+        $firstNumber = new Number('I');
+        $secondNumber = new Number('IV');
+
+        $calculator = new RomanCalculator();
+        $calculator->enter($firstNumber->num);
+        $calculator->enter($secondNumber->num);
+        $result = $calculator->sum();
+
+        $this->assertEquals('V', $result);
     }
 
 }

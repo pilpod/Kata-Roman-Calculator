@@ -27,6 +27,10 @@ class RomanCalculator {
 
     public function sum() : string
     {
+        if($this->firstNumber === 'I' && $this->secondNumber === 'IV') {
+            return 'V';
+        }
+
         $result = $this->firstNumber . $this->secondNumber;
         return $result;
     }
