@@ -47,6 +47,19 @@ class RomanCalculatorTest extends TestCase {
         $this->assertEquals('V', $result);
     }
 
+    function test_I_plus_IV_equals_V()
+    {
+        $firstNumber = new Number('I');
+        $secondNumber = new Number('IV');
+
+        $calculator = new RomanCalculator();
+        $calculator->enter($firstNumber->num);
+        $calculator->enter($secondNumber->num);
+        $result = $calculator->sum();
+
+        $this->assertEquals('V', $result);
+    }
+
 /*
     function test_check_if_first_number_is_less_then_the_second_number()
     {
