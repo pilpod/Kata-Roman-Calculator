@@ -7,16 +7,7 @@ class RomanCalculator {
 
     private string $firstNumber;
     private string $secondNumber;
-
-    private array $numbers = [
-        1 => 'I',
-        5 => 'V',
-        10 => 'X',
-        50 => 'L',
-        100 => 'C',
-        500 => 'D',
-        1000 => 'M'
-    ];
+    private string $number;
 
     public function __construct()
     {
@@ -37,31 +28,21 @@ class RomanCalculator {
 
     public function sum() : string
     {
-        if($this->firstNumber === 'I' && $this->secondNumber === 'IV') {
-            return 'V';
-        }
-
-        $result = $this->firstNumber . $this->secondNumber;
-        return $result;
+        $this->joinNumbers();
+        $this->replaceIfMoreThenFour($this->number);
+        return $this->number;
     }
 
-    function checkIfIsLessThen( string $num1, string $num2) : bool
+    public function replaceIfMoreThenFour(string $numb) : string
     {
-        $keyNum1 = array_search($num1, $this->numbers);
-        $keyNum2 = array_search($num2, $this->numbers);
-
-        if($keyNum1 < $keyNum2) {
-            return true;
-        }
-
-        return false;
-
+        $this->number = str_replace('IIII', 'IV', $numb );
+        return $this->number;
     }
 
-    function checkIfIsSubtraction() : bool
+    public function joinNumbers() : string
     {
-
+        $this->number = $this->firstNumber . $this->secondNumber;
+        return $this->number;
     }
-
 }
 

@@ -21,7 +21,7 @@ class RomanCalculatorTest extends TestCase {
         $this->assertEquals('II', $result);
     }
 
-    function test_II_plus_II_equals_IV()
+     function test_II_plus_II_equals_IV()
     {
         $firstNumber = new Number('II');
         $secondNumber = new Number('II');
@@ -47,6 +47,7 @@ class RomanCalculatorTest extends TestCase {
         $this->assertEquals('V', $result);
     }
 
+/*
     function test_check_if_first_number_is_less_then_the_second_number()
     {
         $firstNumber = new Number('I');
@@ -69,6 +70,6 @@ class RomanCalculatorTest extends TestCase {
 
         $this->assertIsBool($result);
         $this->assertFalse($result);
-    }
+    } */
 
 }
