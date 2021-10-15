@@ -34,10 +34,10 @@ class RomanCalculatorTest extends TestCase {
         $this->assertEquals('IV', $result);
     }
 
-    function test_I_plus_IV_equals_V()
+    function test_III_plus_II_equals_V()
     {
-        $firstNumber = new Number('I');
-        $secondNumber = new Number('IV');
+        $firstNumber = new Number('III');
+        $secondNumber = new Number('II');
 
         $calculator = new RomanCalculator();
         $calculator->enter($firstNumber->num);

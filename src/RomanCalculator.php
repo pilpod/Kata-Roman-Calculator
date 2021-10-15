@@ -30,6 +30,7 @@ class RomanCalculator {
     {
         $this->joinNumbers();
         $this->replaceIfMoreThenFour($this->number);
+        $this->changeToV();
         return $this->number;
     }
 
@@ -43,6 +44,11 @@ class RomanCalculator {
     {
         $this->number = $this->firstNumber . $this->secondNumber;
         return $this->number;
+    }
+
+    public function changeToV()
+    {
+        $this->number = str_replace('IVI', 'V', $this->number);
     }
 }
 
