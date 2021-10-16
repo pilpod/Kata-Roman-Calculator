@@ -31,6 +31,7 @@ class RomanCalculator {
         $this->joinNumbers();
         $this->replaceIfMoreThenFour($this->number);
         $this->changeToV();
+        $this->changeToX();
         return $this->number;
     }
 
@@ -52,6 +53,25 @@ class RomanCalculator {
         $this->number = str_replace('IVI', 'V', $this->number);
     }
 
-    
+    public function changeToX()
+    {
+        $quantityOfV = $this->countHowMuchV();
+        If($quantityOfV === 2) {
+            $this->number = str_replace('V', 'X', $this->number);
+            $this->number = ltrim($this->number, 'X');
+        }
+    }
+
+    public function countHowMuchV() : int
+    {
+        $quantityOfV = substr_count($this->number, 'V');
+        return $quantityOfV;
+    }
+
+    public function countHowMuchX() : int
+    {
+        $quantityOfX = substr_count($this->number, 'X');
+        return $quantityOfX;
+    }
 }
 
