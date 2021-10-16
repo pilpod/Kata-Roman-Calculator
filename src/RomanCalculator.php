@@ -56,10 +56,16 @@ class RomanCalculator {
     public function changeToX()
     {
         $quantityOfV = $this->countHowMuchV();
-        If($quantityOfV === 2) {
+
+        if($this->number === 'VV') {
+            $this->number = 'X';
+        }
+
+        if($quantityOfV === 2 && strlen($this->number) != 1) {
             $this->number = str_replace('V', 'X', $this->number);
             $this->number = ltrim($this->number, 'X');
         }
+        
     }
 
     public function countHowMuchV() : int
