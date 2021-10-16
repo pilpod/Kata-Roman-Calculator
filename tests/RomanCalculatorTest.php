@@ -60,6 +60,46 @@ class RomanCalculatorTest extends TestCase {
         $this->assertEquals('V', $result);
     }
 
+    function test_V_plus_I_equals_VI()
+    {
+        $firstNumber = new Number('V');
+        $secondNumber = new Number('I');
+
+        $calculator = new RomanCalculator();
+        $calculator->enter($firstNumber->num);
+        $calculator->enter($secondNumber->num);
+        $result = $calculator->sum();
+
+        $this->assertEquals('VI', $result);
+    }
+
+    function test_III_plus_III_equals_VI()
+    {
+        $firstNumber = new Number('III');
+        $secondNumber = new Number('III');
+
+        $calculator = new RomanCalculator();
+        $calculator->enter($firstNumber->num);
+        $calculator->enter($secondNumber->num);
+        $result = $calculator->sum();
+
+        $this->assertEquals('VI', $result);
+    }
+
+    function test_V_plus_V_equals_X()
+    {
+        $firstNumber = new Number('V');
+        $secondNumber = new Number('IV');
+
+        $calculator = new RomanCalculator();
+        $calculator->enter($firstNumber->num);
+        $calculator->enter($secondNumber->num);
+        $result = $calculator->sum();
+
+        $this->assertEquals('IX', $result);
+    }  
+
+
 /*
     function test_check_if_first_number_is_less_then_the_second_number()
     {
